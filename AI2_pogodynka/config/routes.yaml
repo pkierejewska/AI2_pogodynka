@@ -1,3 +1,50 @@
+index:
+    path: /
+    controller: App\Controller\WeatherController:indexAction
+
+city_index:
+    path: /city/
+    controller: App\Controller\CityController:index
+city_new:
+    path: /city/new
+    controller: App\Controller\CityController:new
+    methods: GET|POST
+city_delete:
+    path: /city/{id}
+    controller: App\Controller\CityController:delete
+    methods: POST
+city_show:
+    path: /city/{id}
+    controller: App\Controller\CityController:show
+city_edit:
+    path: /city/{id}/edit
+    controller: App\Controller\CityController:edit
+    methods: GET|POST
+
+measurement_index:
+    path: /measurement/
+    controller: App\Controller\MeasurementController:index
+measurement_new:
+    path: /measurement/new
+    controller: App\Controller\MeasurementController:new
+    methods: GET|POST
+measurement_delete:
+    path: /measurement/{id}
+    controller: App\Controller\MeasurementController:delete
+    methods: POST
+measurement_show:
+    path: /measurement/{id}
+    controller: App\Controller\MeasurementController:show
+measurement_edit:
+    path: /measurement/{id}/edit
+    controller: App\Controller\MeasurementController:edit
+    methods: GET|POST
+
+weather_default:
+    path: /weather/{city}
+    controller: App\Controller\WeatherController:defaultCityAction
+    defaults:
+        city: 1
 weather_in_city:
     path: /weather/{country}/{city_name}
     controller: App\Controller\WeatherController:cityAction

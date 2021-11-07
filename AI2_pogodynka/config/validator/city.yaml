@@ -1,0 +1,23 @@
+App\Entity\City:
+  properties:
+    name:
+      - NotBlank:
+          groups: [new_city, edit_city]
+    latitude:
+      - Type: decimal
+      - Range:
+          min: 0
+          max: 180
+          groups: [new_city, edit_city]
+    longitude:
+      - Type: decimal
+      - Range:
+          min: 0
+          max: 180
+          groups: [new_city, edit_city]
+    country:
+      - Type: string
+      - NotNull:
+          groups: [new_city, edit_city]
+      - NotBlank:
+          groups: [new_city, edit_city]

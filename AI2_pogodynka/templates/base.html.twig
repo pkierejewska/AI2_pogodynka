@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Weather Broadcast{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -13,7 +13,16 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
-    <body>
         {% block body %}{% endblock %}
+        <div style="background-color: #AAAAAA; margin: 50px 0px">
+            <header>
+                <h1 style="padding: 0; margin: 0; margin-top: 50px">Weather Broadcast Menu</h1>
+            </header>
+            <nav style="display: flex; flex-direction: column">
+                <h2>Go to:</h2>
+                <a href="{{ path('city_index') }}"> Locations </a>
+                <a href="{{ path('measurement_index') }}"> Measurements </a>
+            </nav>
+        </div>
     </body>
 </html>

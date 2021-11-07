@@ -1,0 +1,43 @@
+App\Entity\Measurement:
+  properties:
+    temperature:
+      - Type: decimal
+      - Range:
+          min: -80
+          max: 80
+          groups: [new_measurement, edit_measurement]
+    chance_of_precipitation:
+      - Type: decimal
+      - Range:
+          min: 0
+          max: 100
+          groups: [new_measurement, edit_measurement]
+    wind:
+      - Type: decimal
+      - Range:
+          min: 0
+          max: 100
+          groups: [new_measurement, edit_measurement]
+    humidity:
+      - Type: decimal
+      - Range:
+          min: 0
+          max: 100
+          groups: [new_measurement, edit_measurement]
+    cloudiness:
+      - Type: decimal
+      - Range:
+          min: 0
+          max: 100
+          groups: [new_measurement, edit_measurement]
+    date:
+      - NotNull:
+          groups: [new_measurement, edit_measurement]
+      - NotBlank:
+          groups: [new_measurement, edit_measurement]
+    city:
+      - Type: string
+      - NotNull:
+          groups: [new_city, edit_city]
+      - NotBlank:
+          groups: [new_city, edit_city]

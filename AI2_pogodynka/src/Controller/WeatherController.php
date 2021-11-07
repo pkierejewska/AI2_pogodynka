@@ -10,8 +10,12 @@ use App\Repository\MeasurementRepository;
 
 class WeatherController extends AbstractController
 {
-    /*
-    public function cityAction(City $city, MeasurementRepository $measurementRepository): Response
+    public function indexAction(): Response
+    {
+        return $this->render('base.html.twig');
+    }
+
+    public function defaultCityAction(City $city, MeasurementRepository $measurementRepository): Response
     {
         $measurements = $measurementRepository->findByLocation($city);
 
@@ -20,7 +24,6 @@ class WeatherController extends AbstractController
             'measurements' => $measurements,
         ]);
     }
-    */
 
     public function cityAction(string $country, string $city_name, MeasurementRepository $measurementRepository, CityRepository $cityRepository): Response
     {
