@@ -8,6 +8,8 @@ use App\Repository\CityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class CityController extends AbstractController
 {
@@ -18,6 +20,9 @@ class CityController extends AbstractController
         ]);
     }
 
+    /**
+     * @IsGranted("ROLE_EDIT")
+     */
     public function new(Request $request): Response
     {
         $city = new City();
@@ -47,6 +52,9 @@ class CityController extends AbstractController
         ]);
     }
 
+    /**
+     * @IsGranted("ROLE_EDIT")
+     */
     public function edit(Request $request, City $city): Response
     {
         $form = $this->createForm(CityType::class, $city, [
@@ -66,6 +74,9 @@ class CityController extends AbstractController
         ]);
     }
 
+    /**
+     * @IsGranted("ROLE_EDIT")
+     */
     public function delete(Request $request, City $city): Response
     {
         if ($this->isCsrfTokenValid('delete'.$city->getId(), $request->request->get('_token'))) {

@@ -2,6 +2,18 @@ index:
     path: /
     controller: App\Controller\WeatherController:indexAction
 
+admin_index:
+    path: /admin
+    controller: App\Controller\AdminController:index
+
+login:
+    path: /login
+    controller: App\Controller\LoginController:index
+
+app_logout:
+    path: /logout
+    methods: GET
+
 city_index:
     path: /city/
     controller: App\Controller\CityController:index

@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class MeasurementController extends AbstractController
 {
@@ -19,6 +21,9 @@ class MeasurementController extends AbstractController
         ]);
     }
 
+    /**
+     * @IsGranted("ROLE_EDIT")
+     */
     public function new(Request $request): Response
     {
         $measurement = new Measurement();
@@ -48,6 +53,9 @@ class MeasurementController extends AbstractController
         ]);
     }
 
+    /**
+     * @IsGranted("ROLE_EDIT")
+     */
     public function edit(Request $request, Measurement $measurement): Response
     {
         $form = $this->createForm(MeasurementType::class, $measurement, [
@@ -67,6 +75,9 @@ class MeasurementController extends AbstractController
         ]);
     }
 
+    /**
+     * @IsGranted("ROLE_EDIT")
+     */
     public function delete(Request $request, Measurement $measurement): Response
     {
         if ($this->isCsrfTokenValid('delete'.$measurement->getId(), $request->request->get('_token'))) {

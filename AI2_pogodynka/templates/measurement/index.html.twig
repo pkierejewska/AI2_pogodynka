@@ -30,7 +30,9 @@
                 <td>{{ measurement.date ? measurement.date|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('measurement_show', {'id': measurement.id}) }}">show</a>
-                    <a href="{{ path('measurement_edit', {'id': measurement.id}) }}">edit</a>
+                    {% if is_granted('ROLE_EDIT') %}
+                        <a href="{{ path('measurement_edit', {'id': measurement.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -41,5 +43,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('measurement_new') }}">Create new</a>
+    {% if is_granted('ROLE_EDIT') %}
+        <a href="{{ path('measurement_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}
