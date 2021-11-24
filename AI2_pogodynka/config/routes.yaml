@@ -52,11 +52,12 @@ measurement_edit:
     controller: App\Controller\MeasurementController:edit
     methods: GET|POST
 
-weather_default:
-    path: /weather/{city}
-    controller: App\Controller\WeatherController:defaultCityAction
-    defaults:
-        city: 1
 weather_in_city:
     path: /weather/{country}/{city_name}
-    controller: App\Controller\WeatherController:cityAction
+    controller: App\Controller\WeatherController:weatherUtilCityCountryAction
+
+weather_default:
+    path: /weather/{city}
+    controller: App\Controller\WeatherController:weatherUtilCityAction
+    defaults:
+        city: 1
